@@ -5,7 +5,20 @@
         'Monday'                => '20% off chocolates',
         'Saturday', 'Sunday'    => '20% off mints',
         default                 => '10% off your entire order',
-    }
+    };
+
+    switch($day) {
+        case 'Monday':
+            $switch = '20% off chocolates';
+            break;
+        case 'Saturday':
+        case 'Sunday':
+            $switch = '20% off mints';
+            break;
+        default:
+            $switch = '10% off your entire order';
+            break;
+    };
 ?>
 
 <!DOCTYPE html>
@@ -20,5 +33,6 @@
     <h1>The Candy Store</h1>
     <h2>Offers on <?= $day ?></h2>
     <p><?= $offer ?></p>
+    <p><?= $switch ?></p>
 </body>
 </html>
